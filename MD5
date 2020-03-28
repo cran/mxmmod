@@ -1,0 +1,16 @@
+2cfed6179ae9132e75f21452115fb209 *DESCRIPTION
+6c8dce951e4bd94fe7738cabdf609d6d *NAMESPACE
+23e329fbb0a93ccc1ecceb0b2c736f3d *R/data.R
+829e717e617c8bd03aabb159d506d02f *R/mxMmodModel.R
+41d8971dbcd47462f276f07c7fd4b9d1 *README.md
+edf95907bfa6776a13b8f4a11d8484cb *build/vignette.rds
+f11a84610f7f4ae73cfd857d2e2c9d73 *data/nlsy97depression.rda
+bc82aae79048e2d8e61d5087d7e5fbe6 *inst/doc/mmod_tutorial.R
+4344e2441f401803a72358074b068af0 *inst/doc/mmod_tutorial.Rmd
+11c46321c0f86c581cfbaf868b529800 *inst/doc/mmod_tutorial.html
+d8ef3b97ac0917d4b3de5f75d4e15510 *man/ContrastsGOLD.Rd
+6c5187e1aa957d383f28e4bffa9f0265 *man/mxMmodModel.Rd
+cfd5cf077f50212f121656ddbdd4c897 *man/nlsy97depression.Rd
+2f3b46aad8fb2db24d684c3f073ff961 *tests/testthat.R
+5164e5e87c7661c1384a44c1f57fd80d *tests/testthat/test-refimpl.R
+4344e2441f401803a72358074b068af0 *vignettes/mmod_tutorial.Rmd
