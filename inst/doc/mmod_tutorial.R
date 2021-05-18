@@ -1,20 +1,20 @@
-## ----setup, include = FALSE----------------------------------------------
+## ----setup, include = FALSE---------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
 eval_semplots <- F
 
-## ---- message=F, warning=F-----------------------------------------------
+## ---- message=F, warning=F----------------------------------------------------
 library(tidyverse)
 library(OpenMx)
 library(mxmmod)
 
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 data(nlsy97depression)
 summary(nlsy97depression)
 
-## ---- fig.width=6, fig.height=6, fig.align='center'----------------------
+## ---- fig.width=6, fig.height=6, fig.align='center'---------------------------
 set.seed(1000)
 subset <- sample(unique(nlsy97depression$pid), 9)
 
@@ -25,7 +25,7 @@ nlsy97depression %>%
   geom_line(position=position_jitter(w=0.1, h=0.1)) +
   facet_wrap(~pid)
 
-## ---- fig.width=6, fig.height=4, fig.align='center'----------------------
+## ---- fig.width=6, fig.height=4, fig.align='center'---------------------------
 nlsy97depression %>%
   gather(measure, val, -occasion, -pid) %>%
   na.omit() %>%
@@ -34,7 +34,7 @@ nlsy97depression %>%
   stat_summary(fun.y = mean, geom='point') +
   stat_summary(fun.data = mean_se, geom='errorbar', width=0.2)
 
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 structure <- list(
   F1 = c('nervous', 'down', 'depressed', 'calm', 'happy')
 )
@@ -44,11 +44,11 @@ mmod_model <- mxMmodModel(data=nlsy97depression,
 mmod_fit <- mxRun(mmod_model)
 (mmod_summary <- summary(mmod_fit))
 
-## ---- eval=eval_semplots, fig.width=6, fig.height=4, fig.align='center'----
+## ---- eval=eval_semplots, fig.width=6, fig.height=4, fig.align='center'-------
 #  # Note: This can take a while to draw...
 #  semPlot::semPaths(mmod_fit, 'est')
 
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 structure2 <- list(
   F1 = c('nervous', 'down', 'depressed'),
   F2 = c('happy', 'calm')
@@ -59,11 +59,11 @@ mmod_model2 <- mxMmodModel(data=nlsy97depression,
 mmod_fit2 <- mxRun(mmod_model2)
 (mmod_summary2 <- summary(mmod_fit2))
 
-## ---- eval=eval_semplots, fig.width=6, fig.height=4, fig.align='center'----
+## ---- eval=eval_semplots, fig.width=6, fig.height=4, fig.align='center'-------
 #  # Note: This can take a while to draw...
 #  semPlot::semPaths(mmod_fit2, 'est')
 
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 fits <- list(mmod_summary, mmod_summary2)
 
 (compare_models <- tibble(
